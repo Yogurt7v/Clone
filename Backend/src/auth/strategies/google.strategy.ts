@@ -6,6 +6,7 @@ import { ConfigType } from "@nestjs/config";
 import { AuthService } from "../auth.service";
 
 
+
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy) {
     constructor(
@@ -18,6 +19,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy) {
             clientSecret: googleConfiguration.clientSecret,
             callbackURL: googleConfiguration.callbackURL,
             scope: ['email', 'profile'],
+            passReqToCallback: false,
         });
     }
 
